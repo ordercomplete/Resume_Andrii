@@ -363,6 +363,14 @@ a {
         min-width: 200px;
         padding: 0;
     }
+
+    .sidebar_title_contacts,
+    .sidebar_title_tech,
+    .sidebar_title_soft {
+
+        font-size: var(--font-size-xmedium);
+
+    }
 }
 
 @media (max-width: 820px) {
