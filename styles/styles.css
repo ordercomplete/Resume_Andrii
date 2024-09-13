@@ -1,3 +1,4 @@
+/* file styles.css */
 :root {
     --font-main: 'Montserrat', sans-serif;
     --color-bg: #E5E5E5;
@@ -370,7 +371,7 @@ a {
         width: auto;
         margin: 0 var(--spacing-xmedium);
         max-width: 700px;
-        padding: 0 var(--spacing-xmedium);
+        padding: 0 var(--spacing-xmedium) 0 0;
     }
 
     .sidebar {
@@ -390,6 +391,7 @@ a {
     .sidebar_soft {
         min-width: 151px;
         max-width: 151px;
+        /* font-size: var(--font-size-small); */
     }
 
     .sidebar_contacts,
@@ -397,6 +399,12 @@ a {
     .sidebar_soft {
         margin-left: 0;
         margin-left: var(--spacing-xmedium);
+        /* font-size: var(--font-size-small); */
+    }
+
+    .sidebar_link,
+    .sidebar_list {
+        font-size: var(--font-size-small);
     }
 
 
