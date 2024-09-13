@@ -76,7 +76,7 @@ body {
     background-color: var(--color-bg-main);
     margin: var(--spacing-large) var(--spacing-large) var(--spacing-large) 0;
     padding: 100px 90px;
-    width: 830px;
+    max-width: 830px;
     box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -360,6 +360,7 @@ a {
     .sidebar {
         padding-bottom: var(--spacing-xmedium);
         width: auto;
+        min-width: 200px;
         padding: 0;
     }
 }
@@ -383,6 +384,7 @@ a {
         width: auto;
         margin: 0;
         max-width: 735px;
+        /* min-width: 300px; */
         padding: 0 var(--spacing-xmedium);
     }
 
