@@ -144,6 +144,9 @@ body {
     font-size: var(--font-size-medium);
     line-height: var(--line-height-medium);
     color: var(--color-text-main);
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-bottom: 5px;
 }
 
 a {
