@@ -367,15 +367,22 @@ a {
 @media (max-width: 820px) {
     .main {
         flex-direction: column;
-        /* margin: 0;
-        padding: 0; */
+        width: auto;
+        /* margin: 0; */
+        padding: 0 var(--spacing-small);
     }
 
-    .main_content,
+    .main_content {
+        width: auto;
+        margin: var(--spacing-small) 0 0 0;
+        max-width: 735px;
+        padding: 0 var(--spacing-xmedium);
+    }
+
     .sidebar {
         width: auto;
         margin: 0;
-        max-width: 700px;
+        max-width: 735px;
         padding: 0 var(--spacing-xmedium);
     }
 
