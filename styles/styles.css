@@ -8,22 +8,26 @@
     --color-text-secondary: #595959;
     --color-accent: #FB6D3A;
     --color-sidebar: #1E2939;
-    --color-link: #565E6A;
+    --color-link: #b4b9c0;
     --color-period: #A8A8A8;
     --color-sidebar-list: #FB6D3A;
     --color-scrollbar-thumb: #888;
     --color-scrollbar-thumb-hover: #555;
     --color-scrollbar-track: #f1f1f1;
+
     --font-size-small: 12px;
     --font-size-medium: 14px;
     --font-size-xmedium: 16px;
+    --font-size-xxmedium: 18px;
     --font-size-large: 22px;
     --font-size-xlarge: 45px;
+
     --line-height-small: 15px;
     --line-height-xsmall: 20px;
     --line-height-medium: 24px;
     --line-height-large: 27px;
     --line-height-xlarge: 55px;
+
     --spacing-small: 10px;
     --spacing-xsmall: 12px;
     --spacing-medium: 15px;
@@ -31,6 +35,7 @@
     --spacing-xxmedium: 30px;
     --spacing-large: 40px;
     --spacing-xlarge: 45px;
+
     --font-weight-regular: 400;
     --font-weight-bold: 700;
     --border-radius-medium: 10px;
@@ -218,7 +223,7 @@ a {
 /* education styles */
 
 .education {
-    margin-top: 40px;
+    margin-top: var(--spacing-large);
 }
 
 .education_title {
@@ -271,6 +276,13 @@ a {
 .sidebar_title_soft {
     font-weight: var(--font-weight-bold);
     font-size: var(--font-size-large);
+    line-height: var(--line-height-medium);
+    margin-bottom: var(--spacing-small);
+}
+
+.sidebar_title_tech_subspecies {
+    font-weight: var(--font-weight-regular);
+    font-size: var(--font-size-xxmedium);
     line-height: var(--line-height-medium);
     margin-bottom: var(--spacing-small);
 }
@@ -367,7 +379,7 @@ a {
     .sidebar_title_contacts,
     .sidebar_title_tech,
     .sidebar_title_soft {
-        font-size: var(--font-size-medium);
+        font-size: var(--font-size-xmedium);
     }
 
     .sidebar_link,
@@ -378,6 +390,10 @@ a {
     .tech_skills_text,
     .soft_skills_text {
         font-size: var(--font-size-small);
+    }
+
+    .sidebar_title_tech_subspecies {
+        font-size: var(--font-size-medium);
     }
 }
 
@@ -402,12 +418,13 @@ a {
         max-width: 735px;
         /* min-width: 300px; */
         padding: 0 var(--spacing-xmedium);
-    }
-
-    .sidebar {
         display: flex;
         flex-direction: row-reverse;
         justify-content: space-between;
+    }
+
+    .sidebar_info {
+        max-width: 100%;
     }
 
     .sidebar_title_contacts,
@@ -416,11 +433,14 @@ a {
         font-size: var(--font-size-large);
     }
 
-    .sidebar_contacts,
+    .sidebar_contacts {
+        max-width: 100%;
+    }
+
     .sidebar_tech,
     .sidebar_soft {
-        min-width: 151px;
-        max-width: 151px;
+        /* min-width: 151px; */
+        /* max-width: 151px; */
         margin-left: 0;
         margin-left: var(--spacing-xmedium);
     }
@@ -446,11 +466,6 @@ a {
         width: 100%;
         /* margin: 0 0 0 var(--spacing-xmedium); */
     }
-
-
-
-
-
 
     .photo img {
         width: auto;
@@ -488,8 +503,11 @@ a {
     .sidebar_tech,
     .sidebar_soft {
         margin-left: 0;
-        margin-left: var(--spacing-large);
+        margin-left: var(--spacing-xlarge);
+        max-width: 100%;
     }
+
+
 }
 
 @media (max-width: 390px) {
