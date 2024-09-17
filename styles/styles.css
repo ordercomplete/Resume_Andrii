@@ -347,8 +347,7 @@ a {
     margin-left: 17px;
 }
 
-.tech_skills_text,
-.soft_skills_text {
+.skills_text {
     color: var(--color-text-first);
 }
 
@@ -408,19 +407,20 @@ li {
         font-size: var(--font-size-xmedium);
     }
 
-    .sidebar_link,
-    .sidebar_list {
-        font-size: var(--font-size-small);
-    }
-
-    .tech_skills_text,
-    .soft_skills_text {
-        font-size: var(--font-size-small);
-    }
-
     .sidebar_title_tech_subspecies {
         font-size: var(--font-size-medium);
     }
+
+    .sidebar_link {
+        font-size: var(--font-size-small);
+    }
+
+    .sidebar_list,
+    .skills_text {
+        font-size: var(--font-size-small);
+    }
+
+
 }
 
 @media (max-width: 820px) {
@@ -456,8 +456,8 @@ li {
     }
 
     .about_text {
-        font-size: var(--font-size-small);
-        line-height: var(--line-height-xsmall);
+        font-size: var(--font-size-medium);
+        line-height: var(--line-height-large);
     }
 
     .title {
@@ -494,11 +494,11 @@ li {
         max-width: 100%;
     }
 
-    .sidebar_title_contacts,
+    /* .sidebar_title_contacts,
     .sidebar_title_tech,
     .sidebar_title_soft {
         font-size: var(--font-size-large);
-    }
+    } */
 
     .sidebar_contacts {
         max-width: 100%;
@@ -520,15 +520,13 @@ li {
         margin-left: var(--spacing-xmedium);
     }
 
-    .sidebar_link,
-    .sidebar_list {
+    .sidebar_link {
         font-size: var(--font-size-medium);
     }
 
-    .tech_skills_text,
-    .soft_skills_text {
+    /* .skills_text {
         font-size: var(--font-size-medium);
-    }
+    } */
 
     .photo {
         padding: 0;
@@ -613,8 +611,8 @@ li {
     }
 
     .about_text {
-        font-size: small;
-        line-height: var(--line-height-medium)
+        /* font-size: small; */
+        line-height: var(--line-height-large)
     }
 
 
