@@ -216,8 +216,8 @@ a {
 }
 
 .work_list {
-    font-weight: var(--font-weight-regular);
     font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-regular);
     line-height: var(--line-height-medium);
     color: var(--color-text-secondary);
     margin-left: - var(--line-height-medium);
@@ -234,21 +234,43 @@ a {
 }
 
 .education_university {
-    font-weight: var(--font-weight-bold);
     font-size: var(--font-size-xmedium);
+    font-weight: var(--font-weight-bold);
     line-height: var(--line-height-xsmall);
     color: var(--color-accent);
     margin-bottom: var(--spacing-xsmall);
     text-decoration: none;
 }
 
+.education_university_link {
+    text-decoration: none;
+    color: var(--color-accent);
+}
+
 .education_direction {
-    font-weight: 700;
     font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-bold);
     line-height: var(--spacing-small);
-    color: #000000;
+    color: var(--color-text-main);
     margin-bottom: var(--spacing-xsmall);
 }
+
+.tooltip {
+    display: none;
+    position: absolute;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    max-width: 200px;
+}
+
+/* .education_university:hover+.tooltip,
+.education_university:active+.tooltip {
+    display: block;
+} */
 
 /* sidebar styles */
 .sidebar {
@@ -619,9 +641,9 @@ li {
 }
 
 @media (max-width: 390px) {
-    /* body {
+    body {
         font-size: var(--font-size-small);
-    } */
+    }
 
     /* .contact-hidden,
     .contact-visible,

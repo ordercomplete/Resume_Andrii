@@ -82,10 +82,12 @@
               <span class="main_content_data">|</span> Kyiv, Ukraine
             </h5>
             <ul class="work_list">
-              <li>Management of the overhaul of the AllstarsIT office.</li>
-              <li>Adjusting the work of workers.</li>
-              <li>Meeting deadlines.</li>
-              <li>Quality control.</li>
+              <li class="work_list_text">
+                Management of the overhaul of the AllstarsIT office.
+              </li>
+              <li class="work_list_text">Adjusting the work of workers.</li>
+              <li class="work_list_text">Meeting deadlines.</li>
+              <li class="work_list_text">Quality control.</li>
             </ul>
           </div>
           <!--Company 2-->
@@ -99,9 +101,13 @@
               <span class="main_content_data">|</span> Kyiv, Ukraine
             </h5>
             <ul class="work_list">
-              <li>Objects of state and commercial order.</li>
-              <li>Meeting deadlines, quality control.</li>
-              <li>Adjusting the work of workers.</li>
+              <li class="work_list_text">
+                Objects of state and commercial order.
+              </li>
+              <li class="work_list_text">
+                Meeting deadlines, quality control.
+              </li>
+              <li class="work_list_text">Adjusting the work of workers.</li>
             </ul>
           </div>
           <!--Company 3-->
@@ -115,9 +121,13 @@
               <span class="main_content_data">|</span> Kyiv, Ukraine
             </h5>
             <ul class="work_list">
-              <li>Overhaul of premises of state and commercial objects.</li>
-              <li>Adjusting the work of workers.</li>
-              <li>Meeting deadlines, quality control.</li>
+              <li class="work_list_text">
+                Overhaul of premises of state and commercial objects.
+              </li>
+              <li class="work_list_text">Adjusting the work of workers.</li>
+              <li class="work_list_text">
+                Meeting deadlines, quality control.
+              </li>
             </ul>
           </div>
           <!--Company 4-->
@@ -131,22 +141,24 @@
               <span class="main_content_data">|</span> Kyiv, Ukraine
             </h5>
             <ul class="work_list">
-              <li>Maintenance of the online store website.</li>
+              <li class="work_list_text">
+                Maintenance of the online store website.
+              </li>
             </ul>
           </div>
         </div>
         <!--Education-->
 
         <div class="education">
-          <h3 class="title">Education</h3>
+          <h3 class="title">Education and courses</h3>
 
           <!-- educational institution 1 -->
 
           <div class="educational_institution">
-            <h4 class="education_university">
+            <h4 class="education_university" data-tooltip="IT school ITBrains">
               <a
                 href="https://it-brains.com.ua/fullstack/"
-                class="education_university"
+                class="education_university_link"
                 target="_blank"
                 ><span>IT school ITBrains</span></a
               >
@@ -163,8 +175,13 @@
           <!-- educational institution 2 -->
 
           <div class="educational_institution">
-            <h4 class="education_university"><span>SNAU</span></h4>
-
+            <h4
+              class="education_university"
+              data-tooltip="Sumy National Agrarian University"
+            >
+              <span>SNAU</span>
+            </h4>
+            <!-- <div class="tooltip">Sumy National Agrarian University</div> -->
             <p class="education_direction">Enterprise economics</p>
 
             <h5 class="period">
@@ -176,8 +193,13 @@
           <!-- educational institution 3 -->
 
           <div class="educational_institution">
-            <h4 class="education_university"><span>SNAU</span></h4>
-
+            <h4
+              class="education_university"
+              data-tooltip="Sumy National Agrarian University"
+            >
+              <span>SNAU</span>
+            </h4>
+            <!-- <div class="tooltip">Sumy National Agrarian University</div> -->
             <p class="education_direction">Civil and industrial construction</p>
 
             <h5 class="period">
@@ -185,6 +207,7 @@
               <span class="main_content_data">|</span> Sumy, Ukraine
             </h5>
           </div>
+          <div class="tooltip" id="tooltip"></div>
         </div>
       </div>
       <!--Sidebar-->
@@ -339,8 +362,8 @@
       </aside>
     </div>
 
+    <!-- hidden sontacs -->
     <script>
-      // Your JavaScript code here
       const contactLinks = document.querySelectorAll(".contact-link");
 
       contactLinks.forEach((link) => {
@@ -349,6 +372,36 @@
           link.classList.toggle("active");
         });
       });
+    </script>
+
+    <!-- floating window -->
+    <script>
+      const tooltip = document.getElementById("tooltip");
+      const universities = document.querySelectorAll(".education_university");
+
+      universities.forEach((university) => {
+        university.addEventListener("mouseenter", function (event) {
+          const tooltipText = this.getAttribute("data-tooltip");
+          tooltip.innerText = tooltipText;
+          tooltip.style.display = "block";
+          positionTooltip(event);
+        });
+
+        university.addEventListener("mousemove", function (event) {
+          positionTooltip(event);
+        });
+
+        university.addEventListener("mouseleave", function () {
+          tooltip.style.display = "none";
+        });
+      });
+
+      function positionTooltip(event) {
+        const padding = 10; // Відстань між мишкою та верхнім краєм тултіпа
+        const offsetRight = 20; // Відстань зміщення вправо
+        tooltip.style.left = `${event.pageX + offsetRight}px`;
+        tooltip.style.top = `${event.pageY - tooltip.offsetHeight - padding}px`;
+      }
     </script>
   </body>
 </html>
