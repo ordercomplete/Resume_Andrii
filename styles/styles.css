@@ -552,6 +552,11 @@ a {
         margin-top: 0;
     } */
 
+    .main_content {
+
+        min-width: 253px;
+    }
+
     .sidebar {
         flex-direction: column;
         padding: 0;
