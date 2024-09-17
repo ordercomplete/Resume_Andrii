@@ -186,7 +186,7 @@ a {
 /* work styles */
 .work {
     margin-top: var(--spacing-large);
-    width: 525px;
+    /* width: 525px; */
     max-width: 100%;
 }
 
@@ -352,6 +352,19 @@ a {
     display: none;
 }
 
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+article,
+section,
+li {
+    padding-right: var(--spacing-medium);
+}
+
 /* Адаптивні стилі */
 @media (max-width: 1220px) {
     .main {
@@ -487,9 +500,9 @@ a {
         max-width: 100%;
     }
 
-    .divider_vertical {
+    .divider {
         border: 1px solid rgb(255, 255, 255);
-        margin: 0 20px 0 0;
+        margin: 20px 20px 20px 0;
     }
 
     .sidebar_skills {
@@ -500,13 +513,8 @@ a {
 
     .sidebar_tech,
     .sidebar_soft {
-        /* min-width: 151px; */
-        /* max-width: 151px; */
-        /* margin-left: 0; */
         margin-left: var(--spacing-xmedium);
     }
-
-
 
     .sidebar_link,
     .sidebar_list {
@@ -562,9 +570,9 @@ a {
         padding: 0;
     }
 
-    .divider_vertical {
-        border: 1px solid rgb(255, 255, 255);
-        margin: 0;
+    .divider {
+
+        margin: 0 20px;
     }
 
     .sidebar_contacts,
@@ -608,9 +616,9 @@ a {
 }
 
 @media (max-width: 390px) {
-    body {
+    /* body {
         font-size: var(--font-size-small);
-    }
+    } */
 
     .contact-hidden,
     .contact-visible,
@@ -618,17 +626,4 @@ a {
     .sidebar_list {
         font-size: var(--font-size-small);
     }
-}
-
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-article,
-section,
-li {
-    padding-right: var(--spacing-medium);
 }
