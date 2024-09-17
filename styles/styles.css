@@ -19,6 +19,7 @@
     --font-size-medium: 14px;
     --font-size-xmedium: 16px;
     --font-size-xxmedium: 18px;
+    --font-size-xxxmedium: 20px;
     --font-size-large: 22px;
     --font-size-xlarge: 45px;
 
@@ -568,7 +569,7 @@ li {
     }
 
     .title {
-        font-size: var(--font-size-medium);
+        font-size: var(--font-size-xxxmedium);
         line-height: var(--line-height-medium);
     }
 
@@ -601,11 +602,7 @@ li {
         max-width: 100%;
     }
 
-    /* .sidebar_title_contacts,
-    .sidebar_title_tech,
-    .sidebar_title_soft {
-        font-size: var(--font-size-large);
-    } */
+
 
     .sidebar_contacts {
         max-width: 100%;
