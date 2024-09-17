@@ -307,6 +307,10 @@ a {
     align-items: start;
 }
 
+.contact-link {
+    text-decoration: none;
+}
+
 .contact-hidden {
     display: none;
 }
@@ -610,6 +614,7 @@ li {
 
     .about_text {
         font-size: small;
+        line-height: var(--line-height-medium)
     }
 
 
@@ -620,10 +625,10 @@ li {
         font-size: var(--font-size-small);
     } */
 
-    .contact-hidden,
+    /* .contact-hidden,
     .contact-visible,
     .sidebar_link,
     .sidebar_list {
         font-size: var(--font-size-small);
-    }
+    } */
 }
