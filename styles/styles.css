@@ -82,6 +82,7 @@ body {
     margin: var(--spacing-large) var(--spacing-large) var(--spacing-large) 0;
     padding: var(--spacing-xlarge) 90px;
     max-width: 830px;
+
     width: auto;
     box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.2);
 
@@ -181,6 +182,16 @@ a {
     line-height: var(--line-height-medium);
     color: var(--color-text-secondary);
     margin-left: var(--spacing-small);
+}
+
+.project_description {
+    font-weight: var(--font-weight-regular);
+    font-size: var(--font-size-medium);
+    line-height: var(--line-height-medium);
+    color: var(--color-text-secondary);
+    width: 400px;
+    margin-bottom: var(--spacing-large);
+    max-width: 100%;
 }
 
 /* work styles */
@@ -391,6 +402,64 @@ li {
     padding-right: var(--spacing-medium);
 }
 
+/* preview */
+.preview {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 380px;
+    height: 70%;
+    max-height: 80%;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.preview iframe {
+    width: 100%;
+    height: calc(100% - 40px);
+    /* оставляет место для кнопки закрытия */
+}
+
+.close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.hover-container {
+    /* position: relative; */
+    margin-bottom: 20px;
+}
+
+.project {
+    /* display: none; */
+    /* схований для мобільних */
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.preview-btn {
+    display: inline-block;
+    color: white;
+    background-color: var(--color-accent);
+    padding: 5px;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 /* Адаптивні стилі */
 @media (max-width: 1220px) {
     .main {
@@ -443,6 +512,13 @@ li {
         font-size: var(--font-size-small);
     }
 
+    .project {
+        display: none;
+    }
+
+    .preview-btn {
+        display: inline-block;
+    }
 
 }
 
@@ -646,6 +722,7 @@ li {
     /* body {
         font-size: var(--font-size-small);
     } */
+
     .main {
         padding: 0;
     }

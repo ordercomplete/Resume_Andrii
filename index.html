@@ -33,10 +33,129 @@
           </p>
         </div>
         <!--Project-->
-        <div class="projects">
+        <div class="projects hover-container" id="link-container">
           <h3 class="title">Projects</h3>
 
-          <ol class="projects_links">
+          <!--Project 1-->
+          <div>
+            <h4 class="work_position">
+              <a
+                href="https://bank-app-itbrains.netlify.app/"
+                class="work_position"
+                target="_blank"
+                >BANK APP</a
+              >
+              <span class="organization"> (FULL STACK)</span>
+              <span>
+                <!-- <a
+                  href="https://bank-app-itbrains.netlify.app/"
+                  class="project"
+                  target="_blank"
+                  >LINK 1</a
+                > -->
+                <a
+                  class="preview-btn"
+                  data-href="https://bank-app-itbrains.netlify.app/"
+                  >Preview</a
+                ></span
+              >
+            </h4>
+
+            <h5 class="period">
+              Technologies stack: React.Js, TypeScript, JavaScript, HTML, SCSS,
+              Node.Js
+            </h5>
+            <p class="project_description">
+              A bank web application of 12 pages is designed to provide users
+              with convenient access to various banking services. Users have the
+              ability to handle account-related tasks (such as signing up,
+              confirming accounts, signing in, recovering forgotten passwords,
+              and updating email and password settings). Additionally, they can
+              transfer funds, replenish their accounts using various payment
+              systems, and access transaction and notification history.
+            </p>
+          </div>
+
+          <!--Project 2-->
+          <div>
+            <h4 class="work_position">
+              Business card site <span class="organization">(FULL STACK)</span>
+              <span
+                ><a
+                  data-href="https://electro-montag-mihail.netlify.app/"
+                  class="preview-btn project"
+                  target="_blank"
+                  >LINK</a
+                ></span
+              >
+            </h4>
+            <h5 class="period">
+              Technologies stack: React.Js, JavaScript, HTML, SCSS, Node.Js
+            </h5>
+            <p class="about_text">
+              A three-page business card site for an electrical installation
+              company.
+            </p>
+          </div>
+
+          <!--Project 3-->
+          <div>
+            <h4 class="work_position">
+              TWITTER<span class="organization"> (FULL STACK)</span>
+              <span
+                ><a
+                  href="#"
+                  data-href="https://resume-andrii-oleksandrovich.netlify.app/"
+                  class="preview-btn project"
+                  target="_blank"
+                  >LINK</a
+                ></span
+              >
+            </h4>
+            <h5 class="period">
+              Technologies stack: HTML, CSS, JavaScript, React.Js, Node.Js
+            </h5>
+            <p class="about_text">
+              A web app for posting short messages and the possibility of
+              replying with comments to them.
+            </p>
+          </div>
+
+          <!--Project 4-->
+          <div>
+            <h4 class="work_position">
+              BANK APR <span class="organization"> (FULL STACK)</span>
+              <span
+                ><a
+                  href="#"
+                  data-href="https://resume-andrii-oleksandrovich.netlify.app/"
+                  class="preview-btn project"
+                  target="_blank"
+                  >LINK</a
+                ></span
+              >
+            </h4>
+            <h5 class="period">
+              Technologies stack: React.Js, TypeScript, JavaScript, HTML, SCSS,
+              Node.Js
+            </h5>
+            <p class="about_text">
+              A bank web application of 12 pages is designed to provide users
+              with convenient access to various banking services. Users have the
+              ability to handle account-related tasks (such as signing up,
+              confirming accounts, signing in, recovering forgotten passwords,
+              and updating email and password settings). Additionally, they can
+              transfer funds, replenish their accounts using various payment
+              systems, and access transaction and notification history.
+            </p>
+          </div>
+
+          <div id="preview" class="preview">
+            <button class="close-btn" onclick="closePreview()">Close</button>
+            <iframe src="" frameborder="0"></iframe>
+          </div>
+
+          <!-- <ol class="projects_links">
             <li class="projects_item">
               <a
                 href="https://resume-andrii-oleksandrovich.netlify.app/"
@@ -65,8 +184,9 @@
               >
               <span class="project_lang">[React.js, Node.js]</span>
             </li>
-          </ol>
+          </ol> -->
         </div>
+
         <!--Work-->
         <div class="work">
           <h3 class="title">Work Experience</h3>
@@ -403,5 +523,57 @@
         tooltip.style.top = `${event.pageY - tooltip.offsetHeight - padding}px`;
       }
     </script>
+
+    <!-- iframe with a preview-->
+    <script>
+      const preview = document.getElementById("preview");
+      const container = document.getElementById("link-container");
+      const iframe = preview.querySelector("iframe");
+
+      container.addEventListener("mouseover", function (event) {
+        if (
+          event.target.tagName === "A" &&
+          event.target.classList.contains("project")
+        ) {
+          const rect = event.target.getBoundingClientRect();
+          preview.style.top = `${window.scrollY + rect.bottom}px`;
+          preview.style.left = `${
+            window.scrollX +
+            (rect.left + rect.right) / 2 -
+            preview.offsetWidth / 2
+          }px`;
+          iframe.src = event.target.href;
+          preview.style.display = "block";
+        }
+      });
+
+      container.addEventListener("mouseout", function (event) {
+        if (
+          event.target.tagName === "A" &&
+          event.target.classList.contains("project")
+        ) {
+          preview.style.display = "none";
+        }
+      });
+
+      document.querySelectorAll(".preview-btn").forEach((button) => {
+        button.addEventListener("click", function (event) {
+          event.preventDefault();
+          const url = button.getAttribute("data-href");
+          iframe.src = url;
+          preview.style.display = "block";
+        });
+      });
+
+      function closePreview() {
+        preview.style.display = "none";
+        iframe.src = ""; // очищуємо src, щоб зупинити завантаження, якщо потрібно
+      }
+    </script>
+    <!-- Опис:
+    Подія 'mouseover': Додаємо обробник подій до батьківського контейнера (hover-container), який перевіряє, чи подія виникла над одним з посилань з класом project.
+    Відображення попереднього перегляду: Встановлюється src для iframe в базі в href відповідного посилання.
+    Приховування попереднього перегляду: Використовується mouseout для приховування div з попереднім переглядом, коли курсор забирається з посилання.
+    Цей підхід допомагає ефективно керувати великою кількістю посилань, зменшуючи необхідність дублювання коду і підвищуючи продуктивність. -->
   </body>
 </html>
