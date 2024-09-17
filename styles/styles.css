@@ -256,6 +256,7 @@ a {
 }
 
 .tooltip {
+    font-size: var(--font-size-medium);
     display: none;
     position: absolute;
     border: 1px solid #ccc;
