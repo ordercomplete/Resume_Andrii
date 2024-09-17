@@ -642,14 +642,13 @@ li {
 }
 
 @media (max-width: 390px) {
-    body {
-        font-size: var(--font-size-small);
-    }
-
-    /* .contact-hidden,
-    .contact-visible,
-    .sidebar_link,
-    .sidebar_list {
+    /* body {
         font-size: var(--font-size-small);
     } */
+
+    .contact-hidden,
+    .contact-visible,
+    .sidebar_link {
+        font-size: var(--font-size-xmedium);
+    }
 }
