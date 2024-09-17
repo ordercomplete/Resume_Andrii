@@ -642,13 +642,21 @@ li {
 }
 
 @media (max-width: 390px) {
+
     /* body {
         font-size: var(--font-size-small);
     } */
+    .main {
+        padding: 0;
+    }
 
     .contact-hidden,
     .contact-visible,
     .sidebar_link {
         font-size: var(--font-size-xmedium);
+    }
+
+    .sidebar_contacts {
+        margin-left: var(--spacing-xmedium);
     }
 }
