@@ -186,7 +186,7 @@ a {
 
 .project_technologies {
     font-weight: var(--font-weight-regular);
-    font-size: var(--font-size-small);
+    font-size: var(--font-size-xsmall);
     line-height: var(--line-height-small);
     color: var(--color-period);
     margin-bottom: var(--spacing-small);
@@ -310,11 +310,20 @@ a {
     width: 100%;
 }
 
-.sidebar_contacts,
+.sidebar_contacts {
+    margin-left: var(--spacing-large);
+    margin-bottom: var(--spacing-xlarge);
+}
+
 .sidebar_tech,
 .sidebar_soft {
     margin-left: var(--spacing-large);
     margin-bottom: var(--spacing-xlarge);
+}
+
+.sidebar_title_contacts {
+    margin-left: var(--spacing-xxmedium);
+    margin-top: var(--spacing-small);
 }
 
 .sidebar_title_contacts,
@@ -333,16 +342,20 @@ a {
     margin-bottom: var(--spacing-small);
 }
 
-.contact_type {
+/* .contact_type {
     font-weight: var(--font-weight-bold);
     font-size: var(--font-size-xsmall);
     line-height: var(--line-height-medium);
     margin-right: 5px;
-}
-
-/* .contact-container {
-    position: relative;
 } */
+
+.contact_icon {
+    width: 20px;
+
+    height: 20px;
+    margin-right: var(--spacing-small);
+
+}
 
 .contact-item,
 .contact-link {
@@ -750,4 +763,8 @@ li {
     .sidebar_contacts {
         margin-left: var(--spacing-xmedium);
     }
+
+    /* .sidebar_title_contacts {
+        margin-top: var(--spacing-small);
+    } */
 }
