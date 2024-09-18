@@ -16,11 +16,12 @@
     --color-scrollbar-track: #f1f1f1;
 
     --font-size-small: 12px;
-    --font-size-medium: 14px;
-    --font-size-xmedium: 16px;
-    --font-size-xxmedium: 18px;
-    --font-size-xxxmedium: 20px;
-    --font-size-large: 22px;
+    --font-size-xsmall: 14px;
+    --font-size-medium: 16px;
+    --font-size-xmedium: 18px;
+    --font-size-big: 20px;
+    --font-size-xbig: 22px;
+    --font-size-large: 30px;
     --font-size-xlarge: 45px;
 
     --line-height-small: 15px;
@@ -39,6 +40,7 @@
 
     --font-weight-regular: 400;
     --font-weight-bold: 700;
+
     --border-radius-medium: 10px;
 }
 
@@ -121,7 +123,7 @@ body {
 
 .about_text {
     font-weight: var(--font-weight-regular);
-    font-size: var(--font-size-medium);
+    font-size: var(--font-size-xsmall);
     line-height: var(--line-height-medium);
     color: var(--color-text-secondary);
     width: 400px;
@@ -137,14 +139,14 @@ body {
 .title {
     font-style: normal;
     font-weight: var(--font-weight-bold);
-    font-size: var(--font-size-large);
+    font-size: var(--font-size-xbig);
     line-height: var(--line-height-large);
 }
 
 .project_title {}
 
 .projects_link {
-    font-size: var(--font-size-xxmedium);
+    font-size: var(--font-size-xmedium);
     color: var(--color-text-main);
     margin-bottom: var(--spacing-small);
 }
@@ -154,7 +156,7 @@ body {
     justify-content: space-between;
     align-items: center;
     font-weight: var(--font-weight-bold);
-    font-size: var(--font-size-medium);
+    font-size: var(--font-size-xsmall);
     line-height: var(--line-height-medium);
     color: var(--color-text-main);
     border: 1px solid black;
@@ -163,24 +165,20 @@ body {
 } */
 
 a {
-    word-break: break-all;
+    /* word-break: break-all; */
     overflow-wrap: break-word;
     text-decoration: underline dotted;
     text-underline-offset: 3px;
 }
 
 .project_title {
-    /* text-decoration: underline dotted; */
-
-
     color: var(--color-text-main);
     margin-bottom: var(--spacing-small);
 }
 
 .project_lang {
-
     font-weight: var(--font-weight-bold);
-    font-size: var(--font-size-medium);
+    font-size: var(--font-size-xsmall);
     line-height: var(--line-height-medium);
     color: var(--color-accent);
     margin: 0 var(--spacing-small);
@@ -190,18 +188,18 @@ a {
     font-weight: var(--font-weight-regular);
     font-size: var(--font-size-small);
     line-height: var(--line-height-small);
-    margin-bottom: var(--spacing-small);
     color: var(--color-period);
+    margin-bottom: var(--spacing-small);
 }
 
 .project_description {
     font-weight: var(--font-weight-regular);
-    font-size: var(--font-size-medium);
+    font-size: var(--font-size-xsmall);
     line-height: var(--line-height-medium);
     color: var(--color-text-secondary);
     width: 400px;
-    margin-bottom: var(--spacing-large);
     max-width: 100%;
+    margin-bottom: var(--spacing-large);
 }
 
 /* work styles */
@@ -229,7 +227,7 @@ a {
 }
 
 .work_position {
-    font-size: var(--font-size-xxmedium);
+    font-size: var(--font-size-xmedium);
     margin-bottom: var(--spacing-small);
 }
 
@@ -238,7 +236,7 @@ a {
 }
 
 .work_list {
-    font-size: var(--font-size-medium);
+    font-size: var(--font-size-xsmall);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-medium);
     color: var(--color-text-secondary);
@@ -256,7 +254,7 @@ a {
 }
 
 .education_university {
-    font-size: var(--font-size-xmedium);
+    font-size: var(--font-size-medium);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-xsmall);
     color: var(--color-accent);
@@ -270,7 +268,7 @@ a {
 }
 
 .education_direction {
-    font-size: var(--font-size-medium);
+    font-size: var(--font-size-xsmall);
     font-weight: var(--font-weight-bold);
     line-height: var(--spacing-small);
     color: var(--color-text-main);
@@ -278,7 +276,7 @@ a {
 }
 
 .tooltip {
-    font-size: var(--font-size-medium);
+    font-size: var(--font-size-xsmall);
     display: none;
     position: absolute;
     border: 1px solid #ccc;
@@ -323,28 +321,28 @@ a {
 .sidebar_title_tech,
 .sidebar_title_soft {
     font-weight: var(--font-weight-bold);
-    font-size: var(--font-size-large);
+    font-size: var(--font-size-xbig);
     line-height: var(--line-height-medium);
     margin-bottom: var(--spacing-small);
 }
 
 .sidebar_title_tech_subspecies {
     font-weight: var(--font-weight-regular);
-    font-size: var(--font-size-xxmedium);
+    font-size: var(--font-size-xmedium);
     line-height: var(--line-height-medium);
     margin-bottom: var(--spacing-small);
 }
 
 .contact_type {
     font-weight: var(--font-weight-bold);
-    font-size: var(--font-size-medium);
+    font-size: var(--font-size-xsmall);
     line-height: var(--line-height-medium);
     margin-right: 5px;
 }
 
-.contact-container {
+/* .contact-container {
     position: relative;
-}
+} */
 
 .contact-item,
 .contact-link {
@@ -380,12 +378,12 @@ a {
 
 .sidebar_link {
     color: var(--color-link);
-    font-size: var(--font-size-medium);
+    font-size: var(--font-size-xsmall);
     line-height: var(--line-height-medium);
 }
 
 .sidebar_list {
-    font-size: var(--font-size-medium);
+    font-size: var(--font-size-xsmall);
     line-height: var(--line-height-medium);
     color: var(--color-sidebar-list);
     padding: 0;
@@ -464,7 +462,7 @@ li {
 .preview-btn {
     display: inline-block;
     font-weight: var(--font-weight-regular);
-    font-size: var(--font-size-medium);
+    font-size: var(--font-size-xsmall);
     color: white;
     background-color: #435d88;
     padding: 5px;
@@ -495,14 +493,19 @@ li {
 
     }
 
-    .sidebar_title_contacts,
+    .sidebar_contacts {
+        min-width: 262px;
+
+    }
+
+    /* .sidebar_title_contacts,
     .sidebar_title_tech,
     .sidebar_title_soft {
-        font-size: var(--font-size-xmedium);
+        font-size: var(--font-size-medium);
     }
 
     .sidebar_title_tech_subspecies {
-        font-size: var(--font-size-medium);
+        font-size: var(--font-size-xsmall);
     }
 
     .sidebar_link {
@@ -512,7 +515,7 @@ li {
     .sidebar_list,
     .skills_text {
         font-size: var(--font-size-small);
-    }
+    } */
 
     .project {
         display: none;
@@ -546,7 +549,7 @@ li {
     }
 
     .about_specialty {
-        font-size: var(--font-size-small);
+        font-size: var(--font-size-big);
         line-height: var(--line-height-small);
         margin: var(--spacing-medium) 0;
     }
@@ -557,22 +560,22 @@ li {
     }
 
     .about_text {
-        font-size: var(--font-size-xmedium);
+        font-size: var(--font-size-medium);
         line-height: var(--line-height-large);
     }
 
     .title {
-        font-size: var(--font-size-xxxmedium);
+        font-size: var(--font-size-big);
         line-height: var(--line-height-medium);
     }
 
     .work_position {
-        font-size: var(--font-size-xmedium);
+        font-size: var(--font-size-medium);
         margin-bottom: var(--spacing-small);
     }
 
     .projects_link {
-        font-size: var(--font-size-xmedium);
+        font-size: var(--font-size-medium);
     }
 
     .about_name,
@@ -593,7 +596,7 @@ li {
         margin: 0;
         margin-top: var(--spacing-small);
         max-width: 735px;
-        /* min-width: 300px; */
+        /* min-width: 305px; */
         padding: 0 var(--spacing-xmedium);
         display: flex;
         flex-direction: row-reverse;
@@ -606,6 +609,12 @@ li {
 
     .sidebar_contacts {
         max-width: 100%;
+        margin-left: var(--spacing-xxmedium);
+    }
+
+    .contact-hidden,
+    .contact-visible {
+        font-size: var(--font-size-medium);
     }
 
     .divider {
@@ -624,9 +633,9 @@ li {
         margin-left: var(--spacing-xmedium);
     }
 
-    .sidebar_link {
-        font-size: var(--font-size-medium);
-    }
+    /* .sidebar_link {
+        font-size: var(--font-size-xsmall);
+    } */
 
     .photo {
         padding: 0;
@@ -654,6 +663,11 @@ li {
 
         max-width: 300px;
 
+    }
+
+    .sidebar_contacts {
+
+        margin-left: 0;
     }
 }
 
@@ -702,7 +716,7 @@ li {
     .about_specialty {
         line-height: var(--line-height-medium);
         margin: var(--spacing-xmedium);
-        font-size: var(--font-size-xmedium);
+        font-size: var(--font-size-medium);
     }
 
     .about_sidebar {
@@ -729,9 +743,8 @@ li {
     }
 
     .contact-hidden,
-    .contact-visible,
-    .sidebar_link {
-        font-size: var(--font-size-xmedium);
+    .contact-visible {
+        font-size: var(--font-size-medium);
     }
 
     .sidebar_contacts {
