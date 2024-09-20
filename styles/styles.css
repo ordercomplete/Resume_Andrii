@@ -427,7 +427,7 @@ a {
     margin-left: 17px;
 }
 
-.skills_text {
+.skills_name {
     color: var(--color-text-first);
 }
 
@@ -551,7 +551,7 @@ li {
     }
 
     .sidebar_list,
-    .skills_text {
+    .skills_name {
         font-size: var(--font-size-small);
     } */
 
