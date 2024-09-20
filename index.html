@@ -56,7 +56,7 @@
             </h4>
 
             <h5 class="marquee-container project_technologies">
-              <span>Tech_stack: </span>
+              Tech_stack:
               <div class="marquee-wrapper">
                 <div class="marquee">
                   <span> React.Js TypeScript JavaScript HTML SCSS Node.Js</span>
@@ -380,67 +380,6 @@
             <img src="img/photo-resume.jpg" alt="user photo" class="photo" />
           </div>
 
-          <!-- <div class="sidebar_contacts">
-            <h4 class="sidebar_title_contacts">Contacts</h4>
-            <div class="contact-container">
-              <p class="height_distance contact-item">
-                <img
-                  src="svg/location.svg"
-                  alt="Address Icon"
-                  class="contact_icon"
-                />
-                <a href="#" class="sidebar_link contact-link">
-                  <span class="contact-hidden"
-                    >Bila Tserkva, Kyiv region, Ukraine</span
-                  >
-                  <span class="contact-visible"
-                    >Bila Tserkva, Kyiv region, Ukraine</span
-                  >
-                </a>
-              </p>
-              <p class="height_distance contact-item">
-                <img
-                  src="svg/telegram.svg"
-                  alt="Phone Icon"
-                  class="contact_icon"
-                />
-                <a
-                  href="https://t.me/ordercomplete"
-                  class="sidebar_link contact-link"
-                >
-                  <span class="contact-hidden">https://t.me/ordercomplete</span>
-                  <span class="contact-visible">@ordercomplete</span>
-                </a>
-              </p>
-              <p class="height_distance contact-item">
-                <img src="svg/mail.svg" alt="Email Icon" class="contact_icon" />
-                <a
-                  href="mailto:ordercomplete777@gmail.com"
-                  class="sidebar_link contact-link"
-                >
-                  <span class="contact-hidden">ordercomplete777@gmail.com</span>
-                  <span class="contact-visible">email</span>
-                </a>
-              </p>
-              <p class="height_distance contact-item">
-                <img
-                  src="svg/github.svg"
-                  alt="GitHub Icon"
-                  class="contact_icon"
-                />
-                <a
-                  href="https://github.com/ordercomplete/"
-                  class="sidebar_link contact-link"
-                >
-                  <span class="contact-hidden"
-                    >https://github.com/ordercomplete/</span
-                  >
-                  <span class="contact-visible">@ordercomplete</span>
-                </a>
-              </p>
-            </div>
-          </div> -->
-
           <div class="sidebar_contacts">
             <h4 class="sidebar_title_contacts">Contacts</h4>
             <div class="contact-container">
@@ -598,6 +537,40 @@
         </div>
       </aside>
     </div>
+    <!-- анімація друку тексту -->
+    <script>
+      function typeEffect(element, text, speed) {
+        let index = 0;
+        element.innerHTML = ""; // Очищаємо існуючий текст перед початком анімації
+
+        function type() {
+          if (index < text.length) {
+            element.innerHTML += text.charAt(index);
+            index++;
+            setTimeout(type, speed);
+          }
+        }
+
+        type();
+      }
+
+      function repeatTypeEffect(element, text, speed, interval) {
+        typeEffect(element, text, speed);
+
+        // Повторюємо ефект друкування через заданий інтервал
+        setInterval(() => {
+          typeEffect(element, text, speed);
+        }, interval);
+      }
+
+      // Знаходимо усі елементи з класом 'title'
+      const titleElements = document.querySelectorAll(".title");
+
+      // Застосовуємо ефект друкування до кожного з них
+      titleElements.forEach((element) => {
+        repeatTypeEffect(element, element.textContent, 150, 5000); // 5 секунд між повтореннями
+      });
+    </script>
 
     <script>
       function handleLinkClick(event, url) {
