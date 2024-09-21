@@ -78,46 +78,59 @@ contactLinks.forEach((link) => {
 //   tooltip.style.top = `${event.pageY - tooltip.offsetHeight - padding}px`;
 // }
 
-document.querySelectorAll(".skills_name").forEach((item) => {
-  item.addEventListener("mouseenter", async (event) => {
-    const word = event.target.textContent.toLowerCase();
-    const tooltip = document.getElementById("tooltip");
+//запити
 
-    // Вебзапит для отримання опису
-    try {
-      // const response = await fetch(
-      //   `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
-      // );
-      const response = await fetch(`https://en.wikipedia.org/w/api.php${word}`);
-      const data = await response.json();
+document
+  .querySelectorAll(".skills_name, .sidebar_title_tech_subspecies, .title")
+  .forEach((item) => {
+    item.addEventListener("mouseenter", async (event) => {
+      const word = event.target.textContent.trim();
+      const tooltip = document.getElementById("tooltip");
 
-      if (
-        data &&
-        data[0] &&
-        data[0].meanings[0] &&
-        data[0].meanings[0].definitions[0]
-      ) {
-        const description = data[0].meanings[0].definitions[0].definition;
-        tooltip.textContent = description;
-      } else {
-        tooltip.textContent = "Опис недоступний";
+      let url = "https://en.wikipedia.org/w/api.php";
+      let params = {
+        action: "query",
+        format: "json",
+        titles: word,
+        prop: "extracts",
+        exintro: true,
+        explaintext: true,
+        origin: "*",
+      };
+
+      url += "?origin=*";
+      Object.keys(params).forEach((key) => {
+        url += "&" + key + "=" + encodeURIComponent(params[key]);
+      });
+
+      // Виконання запиту до API
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        const pages = data.query.pages;
+        const firstPage = Object.values(pages)[0];
+
+        if (firstPage && firstPage.extract) {
+          tooltip.textContent = firstPage.extract;
+        } else {
+          tooltip.textContent = "Опис недоступний";
+        }
+
+        tooltip.style.left = `${event.pageX + 10}px`;
+        tooltip.style.top = `${event.pageY + 10}px`;
+        tooltip.style.display = "block";
+      } catch (error) {
+        console.error("Помилка отримання опису:", error);
+        tooltip.textContent = "Не вдалося отримати опис";
+        tooltip.style.display = "block";
       }
+    });
 
-      tooltip.style.left = `${event.pageX + 10}px`;
-      tooltip.style.top = `${event.pageY + 10}px`;
-      tooltip.style.display = "block";
-    } catch (error) {
-      console.error("Error fetching description:", error);
-      tooltip.textContent = "Не вдалося отримати опис";
-      tooltip.style.display = "block";
-    }
+    item.addEventListener("mouseleave", () => {
+      const tooltip = document.getElementById("tooltip");
+      tooltip.style.display = "none";
+    });
   });
-
-  item.addEventListener("mouseleave", () => {
-    const tooltip = document.getElementById("tooltip");
-    tooltip.style.display = "none";
-  });
-});
 
 // iframe with a preview
 
