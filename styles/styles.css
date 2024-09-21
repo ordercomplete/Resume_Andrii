@@ -517,6 +517,11 @@ li {
     cursor: pointer;
 }
 
+#tooltip {
+    max-width: 200px;
+    border-radius: 4px;
+}
+
 /* Адаптивні стилі */
 @media (max-width: 1220px) {
     .main {

@@ -51,32 +51,72 @@ contactLinks.forEach((link) => {
 
 // floating window
 
-const tooltip = document.getElementById("tooltip");
-const universities = document.querySelectorAll(".education_university");
+// const tooltip = document.getElementById("tooltip");
+// const universities = document.querySelectorAll(".education_university");
 
-universities.forEach((university) => {
-  university.addEventListener("mouseenter", function (event) {
-    const tooltipText = this.getAttribute("data-tooltip");
-    tooltip.innerText = tooltipText;
-    tooltip.style.display = "block";
-    positionTooltip(event);
+// universities.forEach((university) => {
+//   university.addEventListener("mouseenter", function (event) {
+//     const tooltipText = this.getAttribute("data-tooltip");
+//     tooltip.innerText = tooltipText;
+//     tooltip.style.display = "block";
+//     positionTooltip(event);
+//   });
+
+//   university.addEventListener("mousemove", function (event) {
+//     positionTooltip(event);
+//   });
+
+//   university.addEventListener("mouseleave", function () {
+//     tooltip.style.display = "none";
+//   });
+// });
+
+// function positionTooltip(event) {
+//   const padding = 10; // Відстань між мишкою та верхнім краєм тултіпа
+//   const offsetRight = 20; // Відстань зміщення вправо
+//   tooltip.style.left = `${event.pageX + offsetRight}px`;
+//   tooltip.style.top = `${event.pageY - tooltip.offsetHeight - padding}px`;
+// }
+
+document.querySelectorAll(".skills_name").forEach((item) => {
+  item.addEventListener("mouseenter", async (event) => {
+    const word = event.target.textContent.toLowerCase();
+    const tooltip = document.getElementById("tooltip");
+
+    // Вебзапит для отримання опису
+    try {
+      const response = await fetch(
+        `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
+      );
+      const data = await response.json();
+
+      if (
+        data &&
+        data[0] &&
+        data[0].meanings[0] &&
+        data[0].meanings[0].definitions[0]
+      ) {
+        const description = data[0].meanings[0].definitions[0].definition;
+        tooltip.textContent = description;
+      } else {
+        tooltip.textContent = "Опис недоступний";
+      }
+
+      tooltip.style.left = `${event.pageX + 10}px`;
+      tooltip.style.top = `${event.pageY + 10}px`;
+      tooltip.style.display = "block";
+    } catch (error) {
+      console.error("Error fetching description:", error);
+      tooltip.textContent = "Не вдалося отримати опис";
+      tooltip.style.display = "block";
+    }
   });
 
-  university.addEventListener("mousemove", function (event) {
-    positionTooltip(event);
-  });
-
-  university.addEventListener("mouseleave", function () {
+  item.addEventListener("mouseleave", () => {
+    const tooltip = document.getElementById("tooltip");
     tooltip.style.display = "none";
   });
 });
-
-function positionTooltip(event) {
-  const padding = 10; // Відстань між мишкою та верхнім краєм тултіпа
-  const offsetRight = 20; // Відстань зміщення вправо
-  tooltip.style.left = `${event.pageX + offsetRight}px`;
-  tooltip.style.top = `${event.pageY - tooltip.offsetHeight - padding}px`;
-}
 
 // iframe with a preview
 
