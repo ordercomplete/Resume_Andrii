@@ -85,9 +85,10 @@ document.querySelectorAll(".skills_name").forEach((item) => {
 
     // Вебзапит для отримання опису
     try {
-      const response = await fetch(
-        `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
-      );
+      // const response = await fetch(
+      //   `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
+      // );
+      const response = await fetch(`https://en.wikipedia.org/w/api.php${word}`);
       const data = await response.json();
 
       if (
