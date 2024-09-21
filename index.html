@@ -32,7 +32,7 @@
             - these are our priorities!
           </h6>
         </div>
-        <!--Project-->
+
         <div class="projects hover-container" id="link-container">
           <h3 class="title">Projects</h3>
 
@@ -312,8 +312,11 @@
                 ><span>IT school ITBrains</span></a
               >
             </h4>
-
-            <p class="education_direction">Fullstack developer</p>
+            <p class="education_degree">Junior Developer JS</p>
+            <p class="education_direction">
+              The direction of study: Fullstack developer JavaScript, React,
+              Node.js
+            </p>
 
             <h5 class="period">
               August 2023 - April 2024
@@ -328,10 +331,17 @@
               class="education_university"
               data-tooltip="Sumy National Agrarian University"
             >
-              <span>SNAU</span>
+              <a
+                href="https://snau.edu.ua/"
+                class="education_university_link"
+                target="_blank"
+                ><span>SNAU</span></a
+              >
             </h4>
-
-            <p class="education_direction">Enterprise economics</p>
+            <p class="education_degree">M.A. of Economics</p>
+            <p class="education_direction">
+              The direction of study: Enterprise Economy
+            </p>
 
             <h5 class="period">
               September 2018 - desember 2019
@@ -346,10 +356,17 @@
               class="education_university"
               data-tooltip="Sumy National Agrarian University"
             >
-              <span>SNAU</span>
+              <a
+                href="https://snau.edu.ua/"
+                class="education_university_link"
+                target="_blank"
+                ><span>SNAU</span></a
+              >
             </h4>
-
-            <p class="education_direction">Civil and industrial construction</p>
+            <p class="education_degree">M.A. of Civil Engineering</p>
+            <p class="education_direction">
+              The direction of study: "Civil and industrial construction"
+            </p>
 
             <h5 class="period">
               September 2012 - desember 2018
@@ -537,141 +554,7 @@
         </div>
       </aside>
     </div>
-    <!-- анімація друку тексту -->
-    <script>
-      function typeEffect(element, text, speed) {
-        let index = 0;
-        element.innerHTML = ""; // Очищаємо існуючий текст перед початком анімації
 
-        function type() {
-          if (index < text.length) {
-            element.innerHTML += text.charAt(index);
-            index++;
-            setTimeout(type, speed);
-          }
-        }
-
-        type();
-      }
-
-      function repeatTypeEffect(element, text, speed, interval) {
-        typeEffect(element, text, speed);
-
-        // Повторюємо ефект друкування через заданий інтервал
-        setInterval(() => {
-          typeEffect(element, text, speed);
-        }, interval);
-      }
-
-      // Знаходимо усі елементи з класом 'title'
-      const titleElements = document.querySelectorAll(".title");
-
-      // Застосовуємо ефект друкування до кожного з них
-      titleElements.forEach((element) => {
-        repeatTypeEffect(element, element.textContent, 150, 5000); // 5 секунд між повтореннями
-      });
-    </script>
-
-    <script>
-      function handleLinkClick(event, url) {
-        event.preventDefault(); // Попереджаємо базову поведінку посилання
-        // window.location.href = url; // Переходимо за вказаною URL-адресою
-        window.open(url, "_blank"); // Відкриваємо URL у новому вікні
-      }
-    </script>
-
-    <!-- hidden sontacs -->
-    <script>
-      const contactLinks = document.querySelectorAll(".contact-link");
-
-      contactLinks.forEach((link) => {
-        link.addEventListener("click", (event) => {
-          event.preventDefault();
-          link.classList.toggle("active");
-        });
-      });
-    </script>
-
-    <!-- floating window -->
-    <script>
-      const tooltip = document.getElementById("tooltip");
-      const universities = document.querySelectorAll(".education_university");
-
-      universities.forEach((university) => {
-        university.addEventListener("mouseenter", function (event) {
-          const tooltipText = this.getAttribute("data-tooltip");
-          tooltip.innerText = tooltipText;
-          tooltip.style.display = "block";
-          positionTooltip(event);
-        });
-
-        university.addEventListener("mousemove", function (event) {
-          positionTooltip(event);
-        });
-
-        university.addEventListener("mouseleave", function () {
-          tooltip.style.display = "none";
-        });
-      });
-
-      function positionTooltip(event) {
-        const padding = 10; // Відстань між мишкою та верхнім краєм тултіпа
-        const offsetRight = 20; // Відстань зміщення вправо
-        tooltip.style.left = `${event.pageX + offsetRight}px`;
-        tooltip.style.top = `${event.pageY - tooltip.offsetHeight - padding}px`;
-      }
-    </script>
-
-    <!-- iframe with a preview-->
-    <script>
-      const preview = document.getElementById("preview");
-      const container = document.getElementById("link-container");
-      const iframe = preview.querySelector("iframe");
-
-      container.addEventListener("mouseover", function (event) {
-        if (
-          event.target.tagName === "A" &&
-          event.target.classList.contains("project")
-        ) {
-          const rect = event.target.getBoundingClientRect();
-          preview.style.top = `${window.scrollY + rect.bottom}px`;
-          preview.style.left = `${
-            window.scrollX +
-            (rect.left + rect.right) / 2 -
-            preview.offsetWidth / 2
-          }px`;
-          iframe.src = event.target.href;
-          preview.style.display = "block";
-        }
-      });
-
-      container.addEventListener("mouseout", function (event) {
-        if (
-          event.target.tagName === "A" &&
-          event.target.classList.contains("project")
-        ) {
-          preview.style.display = "none";
-        }
-      });
-
-      document.querySelectorAll(".preview-btn").forEach((button) => {
-        button.addEventListener("click", function (event) {
-          event.preventDefault();
-          const url = button.getAttribute("data-href");
-          iframe.src = url;
-          preview.style.display = "block";
-        });
-      });
-
-      function closePreview() {
-        preview.style.display = "none";
-        iframe.src = ""; // очищуємо src, щоб зупинити завантаження, якщо потрібно
-      }
-    </script>
-    <!-- Опис:
-    Подія 'mouseover': Додаємо обробник подій до батьківського контейнера (hover-container), який перевіряє, чи подія виникла над одним з посилань з класом project.
-    Відображення попереднього перегляду: Встановлюється src для iframe в базі в href відповідного посилання.
-    Приховування попереднього перегляду: Використовується mouseout для приховування div з попереднім переглядом, коли курсор забирається з посилання.
-    Цей підхід допомагає ефективно керувати великою кількістю посилань, зменшуючи необхідність дублювання коду і підвищуючи продуктивність. -->
+    <script src="scripts.js"></script>
   </body>
 </html>

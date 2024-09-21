@@ -291,12 +291,20 @@ a {
     color: var(--color-accent);
 }
 
+.education_degree,
 .education_direction {
     font-size: var(--font-size-xsmall);
-    font-weight: var(--font-weight-bold);
-    line-height: var(--spacing-small);
+    line-height: var(--spacing-medium);
     color: var(--color-text-main);
     margin-bottom: var(--spacing-xsmall);
+}
+
+.education_degree {
+    font-weight: var(--font-weight-bold);
+}
+
+.education_direction {
+    font-weight: var(--font-weight-regular);
 }
 
 .tooltip {
