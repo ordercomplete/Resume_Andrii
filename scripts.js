@@ -80,50 +80,108 @@ contactLinks.forEach((link) => {
 
 //запити
 
+// document
+//   .querySelectorAll(".skills_name, .sidebar_title_tech_subspecies, .title")
+//   .forEach((item) => {
+//     item.addEventListener("mouseenter", async (event) => {
+//       const word = event.target.textContent.trim();
+//       const tooltip = document.getElementById("tooltip");
+
+//       let url = "https://en.wikipedia.org/w/api.php";
+//       let params = {
+//         action: "query",
+//         format: "json",
+//         titles: word,
+//         prop: "extracts",
+//         exintro: true,
+//         explaintext: true,
+//         origin: "*",
+//       };
+
+//       url += "?origin=*";
+//       Object.keys(params).forEach((key) => {
+//         url += "&" + key + "=" + encodeURIComponent(params[key]);
+//       });
+
+//       // Виконання запиту до API
+//       try {
+//         const response = await fetch(url);
+//         const data = await response.json();
+//         const pages = data.query.pages;
+//         const firstPage = Object.values(pages)[0];
+
+//         if (firstPage && firstPage.extract) {
+//           tooltip.textContent = firstPage.extract;
+//         } else {
+//           tooltip.textContent = "Опис недоступний";
+//         }
+
+//         tooltip.style.left = `${event.pageX + 10}px`;
+//         tooltip.style.top = `${event.pageY + 10}px`;
+//         tooltip.style.display = "block";
+//       } catch (error) {
+//         console.error("Помилка отримання опису:", error);
+//         tooltip.textContent = "Не вдалося отримати опис";
+//         tooltip.style.display = "block";
+//       }
+//     });
+
+//     item.addEventListener("mouseleave", () => {
+//       const tooltip = document.getElementById("tooltip");
+//       tooltip.style.display = "none";
+//     });
+//   });
 document
   .querySelectorAll(".skills_name, .sidebar_title_tech_subspecies, .title")
   .forEach((item) => {
     item.addEventListener("mouseenter", async (event) => {
-      const word = event.target.textContent.trim();
+      const words = event.target.textContent.trim().split(" ");
       const tooltip = document.getElementById("tooltip");
 
-      let url = "https://en.wikipedia.org/w/api.php";
-      let params = {
-        action: "query",
-        format: "json",
-        titles: word,
-        prop: "extracts",
-        exintro: true,
-        explaintext: true,
-        origin: "*",
-      };
+      let descriptions = [];
 
-      url += "?origin=*";
-      Object.keys(params).forEach((key) => {
-        url += "&" + key + "=" + encodeURIComponent(params[key]);
-      });
+      // Виконання запитів до API для кожного слова
+      for (const word of words) {
+        let url = "https://en.wikipedia.org/w/api.php";
+        let params = {
+          action: "query",
+          format: "json",
+          titles: word,
+          prop: "extracts",
+          exintro: true,
+          explaintext: true,
+          origin: "*",
+        };
 
-      // Виконання запиту до API
-      try {
-        const response = await fetch(url);
-        const data = await response.json();
-        const pages = data.query.pages;
-        const firstPage = Object.values(pages)[0];
+        url += "?origin=*";
+        Object.keys(params).forEach((key) => {
+          url += "&" + key + "=" + encodeURIComponent(params[key]);
+        });
 
-        if (firstPage && firstPage.extract) {
-          tooltip.textContent = firstPage.extract;
-        } else {
-          tooltip.textContent = "Опис недоступний";
+        try {
+          const response = await fetch(url);
+          const data = await response.json();
+          const pages = data.query.pages;
+          const firstPage = Object.values(pages)[0];
+
+          if (firstPage && firstPage.extract) {
+            descriptions.push(firstPage.extract);
+          } else {
+            descriptions.push("Опис недоступний");
+          }
+        } catch (error) {
+          console.error("Помилка отримання опису:", error);
+          descriptions.push("Не вдалося отримати опис");
         }
-
-        tooltip.style.left = `${event.pageX + 10}px`;
-        tooltip.style.top = `${event.pageY + 10}px`;
-        tooltip.style.display = "block";
-      } catch (error) {
-        console.error("Помилка отримання опису:", error);
-        tooltip.textContent = "Не вдалося отримати опис";
-        tooltip.style.display = "block";
       }
+
+      // Об'єднання описів у єдиний текст
+      const combinedDescription = descriptions.join("\n\n");
+      tooltip.textContent = combinedDescription;
+
+      tooltip.style.left = `${event.pageX + 10}px`;
+      tooltip.style.top = `${event.pageY + 10}px`;
+      tooltip.style.display = "block";
     });
 
     item.addEventListener("mouseleave", () => {
