@@ -86,7 +86,7 @@ document.querySelectorAll(".skills_name").forEach((item) => {
     // Вебзапит для отримання опису
     try {
       const response = await fetch(
-        `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
+        `https://en.wikipedia.org/api/rest_v1/page/summary/${word}`
       );
       const data = await response.json();
 
