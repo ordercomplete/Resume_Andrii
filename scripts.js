@@ -49,90 +49,12 @@ contactLinks.forEach((link) => {
   });
 });
 
-// floating window
-
-// const tooltip = document.getElementById("tooltip");
-// const universities = document.querySelectorAll(".education_university");
-
-// universities.forEach((university) => {
-//   university.addEventListener("mouseenter", function (event) {
-//     const tooltipText = this.getAttribute("data-tooltip");
-//     tooltip.innerText = tooltipText;
-//     tooltip.style.display = "block";
-//     positionTooltip(event);
-//   });
-
-//   university.addEventListener("mousemove", function (event) {
-//     positionTooltip(event);
-//   });
-
-//   university.addEventListener("mouseleave", function () {
-//     tooltip.style.display = "none";
-//   });
-// });
-
-// function positionTooltip(event) {
-//   const padding = 10; // Відстань між мишкою та верхнім краєм тултіпа
-//   const offsetRight = 20; // Відстань зміщення вправо
-//   tooltip.style.left = `${event.pageX + offsetRight}px`;
-//   tooltip.style.top = `${event.pageY - tooltip.offsetHeight - padding}px`;
-// }
-
 //запити
 
-// document
-//   .querySelectorAll(".skills_name, .sidebar_title_tech_subspecies, .title")
-//   .forEach((item) => {
-//     item.addEventListener("mouseenter", async (event) => {
-//       const word = event.target.textContent.trim();
-//       const tooltip = document.getElementById("tooltip");
-
-//       let url = "https://en.wikipedia.org/w/api.php";
-//       let params = {
-//         action: "query",
-//         format: "json",
-//         titles: word,
-//         prop: "extracts",
-//         exintro: true,
-//         explaintext: true,
-//         origin: "*",
-//       };
-
-//       url += "?origin=*";
-//       Object.keys(params).forEach((key) => {
-//         url += "&" + key + "=" + encodeURIComponent(params[key]);
-//       });
-
-//       // Виконання запиту до API
-//       try {
-//         const response = await fetch(url);
-//         const data = await response.json();
-//         const pages = data.query.pages;
-//         const firstPage = Object.values(pages)[0];
-
-//         if (firstPage && firstPage.extract) {
-//           tooltip.textContent = firstPage.extract;
-//         } else {
-//           tooltip.textContent = "Опис недоступний";
-//         }
-
-//         tooltip.style.left = `${event.pageX + 10}px`;
-//         tooltip.style.top = `${event.pageY + 10}px`;
-//         tooltip.style.display = "block";
-//       } catch (error) {
-//         console.error("Помилка отримання опису:", error);
-//         tooltip.textContent = "Не вдалося отримати опис";
-//         tooltip.style.display = "block";
-//       }
-//     });
-
-//     item.addEventListener("mouseleave", () => {
-//       const tooltip = document.getElementById("tooltip");
-//       tooltip.style.display = "none";
-//     });
-//   });
 document
-  .querySelectorAll(".skills_name, .sidebar_title_tech_subspecies, .title")
+  .querySelectorAll(
+    ".skills_name, .sidebar_title_tech_subspecies, .sidebar_title_tech, .title"
+  )
   .forEach((item) => {
     item.addEventListener("mouseenter", async (event) => {
       const words = event.target.textContent.trim().split(" ");
@@ -167,16 +89,16 @@ document
           if (firstPage && firstPage.extract) {
             descriptions.push(firstPage.extract);
           } else {
-            descriptions.push("Опис недоступний");
+            descriptions.push("...");
           }
         } catch (error) {
-          console.error("Помилка отримання опису:", error);
-          descriptions.push("Не вдалося отримати опис");
+          console.error("Error getting description:", error);
+          descriptions.push("Failed to get description");
         }
       }
 
       // Об'єднання описів у єдиний текст
-      const combinedDescription = descriptions.join("\n\n");
+      const combinedDescription = descriptions.join("\n ### \n");
       tooltip.textContent = combinedDescription;
 
       tooltip.style.left = `${event.pageX + 10}px`;
@@ -191,7 +113,6 @@ document
   });
 
 // iframe with a preview
-
 const preview = document.getElementById("preview");
 const container = document.getElementById("link-container");
 const iframe = preview.querySelector("iframe");
