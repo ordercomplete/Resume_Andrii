@@ -412,12 +412,14 @@ a {
 
 .contact-link:hover .contact-hidden,
 .contact-link:focus .contact-hidden {
-    display: inline-block;
+    /* display: inline-block; */
+    display: none;
 }
 
 .contact-link:hover .contact-visible,
 .contact-link:focus .contact-visible {
-    display: none;
+    /* display: none; */
+    display: inline-block;
 }
 
 
