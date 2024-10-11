@@ -421,7 +421,7 @@ a {
 
 .contact-link:hover .contact-hidden,
 .contact-link:focus .contact-hidden {
-    display: none;
+    display: inline-block;
 }
 
 .contact-link:hover .contact-visible,
