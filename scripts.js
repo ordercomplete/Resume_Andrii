@@ -40,14 +40,14 @@ function handleLinkClick(event, url) {
 
 // hidden sontacs
 
-const contactLinks = document.querySelectorAll(".contact-link");
+// const contactLinks = document.querySelectorAll(".contact-link");
 
-contactLinks.forEach((link) => {
-  link.addEventListener("click", (event) => {
-    event.preventDefault();
-    link.classList.toggle("active");
-  });
-});
+// contactLinks.forEach((link) => {
+//   link.addEventListener("click", (event) => {
+//     event.preventDefault();
+//     link.classList.toggle("active");
+//   });
+// });
 
 //запити
 
