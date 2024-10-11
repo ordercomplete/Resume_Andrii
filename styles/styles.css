@@ -399,8 +399,10 @@ a {
     text-decoration: none;
 }
 
+/* тимчасова зміна показу контактів для резюме PDF */
 .contact-hidden {
-    display: none;
+    /* display: none; */
+    display: inline-block;
 }
 
 .contact-visible {
@@ -417,17 +419,9 @@ a {
     display: none;
 } */
 
-/* тимчасова зміна показу контактів для резюме PDF */
 
-.contact-link:hover .contact-hidden,
-.contact-link:focus .contact-hidden {
-    display: inline-block;
-}
 
-.contact-link:hover .contact-visible,
-.contact-link:focus .contact-visible {
-    display: inline-block;
-}
+
 
 .height_distance {
     margin-bottom: -10px;
