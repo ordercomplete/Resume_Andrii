@@ -410,7 +410,7 @@ a {
     display: none;
 }
 
-/* .contact-link:hover .contact-hidden,
+.contact-link:hover .contact-hidden,
 .contact-link:focus .contact-hidden {
     display: inline-block;
 }
@@ -418,7 +418,7 @@ a {
 .contact-link:hover .contact-visible,
 .contact-link:focus .contact-visible {
     display: none;
-} */
+}
 
 
 
