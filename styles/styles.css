@@ -179,14 +179,14 @@ a {
     margin: var(--spacing-small) 0;
 }
 
-.marquee-container {
-    overflow: hidden;
-    white-space: nowrap;
-}
-
 .project_technologies {
     display: flex;
     align-items: center;
+}
+
+.marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .marquee-wrapper {
@@ -399,27 +399,27 @@ a {
     text-decoration: none;
 }
 
-/* тимчасова зміна показу контактів для резюме PDF */
+/* тимчасова зміна для показу контактів для резюме PDF */
 .contact-hidden {
-    /* display: none; */
-    display: inline-block;
+    display: none;
+    /* display: inline-block; */
 }
 
 .contact-visible {
-    /* display: inline-block; */
-    display: none;
+    display: inline-block;
+    /* display: none; */
 }
 
 .contact-link:hover .contact-hidden,
 .contact-link:focus .contact-hidden {
-    /* display: inline-block; */
-    display: none;
+    display: inline-block;
+    /* display: none; */
 }
 
 .contact-link:hover .contact-visible,
 .contact-link:focus .contact-visible {
-    /* display: none; */
-    display: inline-block;
+    display: none;
+    /* display: inline-block; */
 }
 
 
