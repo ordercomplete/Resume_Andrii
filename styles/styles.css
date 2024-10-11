@@ -406,7 +406,8 @@ a {
 }
 
 .contact-visible {
-    display: inline-block;
+    /* display: inline-block; */
+    display: none;
 }
 
 /* .contact-link:hover .contact-hidden,
