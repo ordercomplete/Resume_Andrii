@@ -1,8 +1,17 @@
-// анімація друку тексту
+/**
+ * scripts.js - JavaScript functionality for resume page
+ * Includes: typing animation, contact link handling, Wikipedia tooltips, project preview
+ */
 
+/**
+ * Typing effect animation - simulates typing text character by character
+ * @param {HTMLElement} element - The element to apply the effect to
+ * @param {string} text - The text to type
+ * @param {number} speed - Typing speed in milliseconds per character
+ */
 function typeEffect(element, text, speed) {
   let index = 0;
-  element.innerHTML = ""; // Очищаємо існуючий текст перед початком анімації
+  element.innerHTML = "";
 
   function type() {
     if (index < text.length) {
@@ -15,33 +24,38 @@ function typeEffect(element, text, speed) {
   type();
 }
 
+/**
+ * Repeats the typing effect at specified intervals
+ * @param {HTMLElement} element - The element to apply the effect to
+ * @param {string} text - The text to type
+ * @param {number} speed - Typing speed in milliseconds
+ * @param {number} interval - Interval between repeats in milliseconds
+ */
 function repeatTypeEffect(element, text, speed, interval) {
   typeEffect(element, text, speed);
-
-  // Повторюємо ефект друкування через заданий інтервал
   setInterval(() => {
     typeEffect(element, text, speed);
   }, interval);
 }
 
-// Знаходимо усі елементи з класом 'title'
+// Apply typing animation to all title elements
 const titleElements = document.querySelectorAll(".title");
-
-// Застосовуємо ефект друкування до кожного з них
 titleElements.forEach((element) => {
-  repeatTypeEffect(element, element.textContent, 150, 5000); // 5 секунд між повтореннями
+  repeatTypeEffect(element, element.textContent, 150, 5000);
 });
 
+/**
+ * Handles click on contact links - opens URL in new tab
+ * @param {Event} event - Click event
+ * @param {string} url - URL to open
+ */
 function handleLinkClick(event, url) {
-  event.preventDefault(); // Попереджаємо базову поведінку посилання
-  // window.location.href = url; // Переходимо за вказаною URL-адресою
-  window.open(url, "_blank"); // Відкриваємо URL у новому вікні
+  event.preventDefault();
+  window.open(url, "_blank");
 }
 
-// hidden sontacs
-
+// Contact link active state toggle
 const contactLinks = document.querySelectorAll(".contact-link");
-
 contactLinks.forEach((link) => {
   link.addEventListener("click", (event) => {
     event.preventDefault();
@@ -49,23 +63,25 @@ contactLinks.forEach((link) => {
   });
 });
 
-//запити
-
+/**
+ * Wikipedia API tooltip - fetches descriptions for skills/technologies
+ * Displays tooltip on mouseenter with Wikipedia extract for each word
+ */
 document
   .querySelectorAll(
-    ".skills_name, .sidebar_title_tech_subspecies, .sidebar_title_tech, .title"
+    ".skills_name, .sidebar_title_tech_subspecies, .sidebar_title_tech, .title",
   )
   .forEach((item) => {
     item.addEventListener("mouseenter", async (event) => {
       const words = event.target.textContent.trim().split(" ");
       const tooltip = document.getElementById("tooltip");
 
-      let descriptions = [];
+      const descriptions = [];
 
-      // Виконання запитів до API для кожного слова
+      // Fetch Wikipedia description for each word
       for (const word of words) {
-        let url = "https://en.wikipedia.org/w/api.php";
-        let params = {
+        const url = "https://en.wikipedia.org/w/api.php";
+        const params = {
           action: "query",
           format: "json",
           titles: word,
@@ -75,13 +91,11 @@ document
           origin: "*",
         };
 
-        url += "?origin=*";
-        Object.keys(params).forEach((key) => {
-          url += "&" + key + "=" + encodeURIComponent(params[key]);
-        });
+        const queryString = new URLSearchParams(params).toString();
+        const fullUrl = `${url}?${queryString}`;
 
         try {
-          const response = await fetch(url);
+          const response = await fetch(fullUrl);
           const data = await response.json();
           const pages = data.query.pages;
           const firstPage = Object.values(pages)[0];
@@ -97,10 +111,8 @@ document
         }
       }
 
-      // Об'єднання описів у єдиний текст
-      const combinedDescription = descriptions.join("\n ### \n");
-      tooltip.textContent = combinedDescription;
-
+      // Display combined descriptions in tooltip
+      tooltip.textContent = descriptions.join("\n ### \n");
       tooltip.style.left = `${event.pageX + 10}px`;
       tooltip.style.top = `${event.pageY + 10}px`;
       tooltip.style.display = "block";
@@ -112,11 +124,14 @@ document
     });
   });
 
-// iframe with a preview
+// Project preview modal functionality
 const preview = document.getElementById("preview");
 const container = document.getElementById("link-container");
 const iframe = preview.querySelector("iframe");
 
+/**
+ * Shows preview iframe on mouseover of project links
+ */
 container.addEventListener("mouseover", function (event) {
   if (
     event.target.tagName === "A" &&
@@ -132,6 +147,9 @@ container.addEventListener("mouseover", function (event) {
   }
 });
 
+/**
+ * Hides preview iframe on mouseout from project links
+ */
 container.addEventListener("mouseout", function (event) {
   if (
     event.target.tagName === "A" &&
@@ -141,6 +159,7 @@ container.addEventListener("mouseout", function (event) {
   }
 });
 
+// Preview button click handler
 document.querySelectorAll(".preview-btn").forEach((button) => {
   button.addEventListener("click", function (event) {
     event.preventDefault();
@@ -150,13 +169,10 @@ document.querySelectorAll(".preview-btn").forEach((button) => {
   });
 });
 
+/**
+ * Closes the preview modal and clears iframe src
+ */
 function closePreview() {
   preview.style.display = "none";
-  iframe.src = ""; // очищуємо src, щоб зупинити завантаження, якщо потрібно
+  iframe.src = "";
 }
-
-// Опис:
-// Подія 'mouseover': Додаємо обробник подій до батьківського контейнера (hover-container), який перевіряє, чи подія виникла над одним з посилань з класом project.
-// Відображення попереднього перегляду: Встановлюється src для iframe в базі в href відповідного посилання.
-// Приховування попереднього перегляду: Використовується mouseout для приховування div з попереднім переглядом, коли курсор забирається з посилання.
-// Цей підхід допомагає ефективно керувати великою кількістю посилань, зменшуючи необхідність дублювання коду і підвищуючи продуктивність.

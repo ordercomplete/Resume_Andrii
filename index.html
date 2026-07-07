@@ -1,10 +1,31 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resume Andrii</title>
+    <!-- SEO: опис сторінки для пошукових систем -->
+    <meta
+      name="description"
+      content="Резюме Андрія К — Front-End розробник. Проєкти, досвід роботи, навички та освіта."
+    />
+    <meta name="author" content="Andrii K" />
+    <title>Resume Andrii — Front-End Developer</title>
+    <!-- Open Graph для соцмереж -->
+    <meta property="og:title" content="Resume Andrii — Front-End Developer" />
+    <meta
+      property="og:description"
+      content="Front-End розробник: React, TypeScript, Node.js. Досвід, проєкти та навички."
+    />
+    <meta property="og:type" content="profile" />
+    <meta property="og:locale" content="uk_UA" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Resume Andrii — Front-End Developer" />
+    <meta
+      name="twitter:description"
+      content="Front-End розробник: React, TypeScript, Node.js."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,10 +33,30 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles/styles.css" />
+    <!-- JSON-LD структуровані дані для SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Andrii K",
+        "jobTitle": "Front-End Developer",
+        "url": "https://resume-andrii-ordercomplete.netlify.app/",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bila Tserkva",
+          "addressRegion": "Kyiv region",
+          "addressCountry": "UA"
+        },
+        "sameAs": [
+          "https://github.com/ordercomplete/",
+          "https://www.linkedin.com/in/andrii-ordercomplete/"
+        ]
+      }
+    </script>
   </head>
   <body>
     <!--Main-->
-    <div class="main">
+    <main class="main">
       <!--Main content-->
       <div class="main_content">
         <!--about user-->
@@ -141,38 +182,6 @@
             </p>
           </div>
 
-          <!-- <div>
-            <h4 class="project_title">
-              <a
-                href="https://resume-andrii-ordercomplete.netlify.app/"
-                class="projects_link"
-                target="_blank"
-                >PURCHASE PRODUCT</a
-              >
-              <span class="project_lang"> (FULL_STACK)</span>
-              <span>
-                <a
-                  class="preview-btn"
-                  data-href="https://resume-andrii-ordercomplete.netlify.app/"
-                  >Preview</a
-                ></span
-              >
-            </h4>
-
-            <h5 class="marquee-container project_technologies">
-              <span>Tech_stack: </span>
-              <div class="marquee-wrapper">
-                <div class="marquee">
-                  <span> HTML CSS Handlebars JavaScript Node.Js</span>
-                </div>
-              </div>
-            </h5>
-            <p class="project_description">
-              A site for creating an order with discounts and product
-              categories.
-            </p>
-          </div> -->
-
           <!--Project 4-->
           <div>
             <h4 class="project_title">
@@ -206,41 +215,6 @@
               links. Help terms. Effects for text.
             </p>
           </div>
-          <!--Project 5-->
-          <!-- <div>
-            <h4 class="project_title">
-              <a
-                href="https://bank-app-itbrains.netlify.app/"
-                class="projects_link"
-                target="_blank"
-                >SPOTIFY APP</a
-              >
-              <span class="project_lang"> (FULL_STACK)</span>
-              <span>
-                <a
-                  class="preview-btn"
-                  data-href="https://bank-app-itbrains.netlify.app/"
-                  >Preview</a
-                ></span
-              >
-            </h4>
-
-            <h5 class="marquee-container project_technologies">
-              <span>Tech_stack: </span>
-              <div class="marquee-wrapper">
-                <div class="marquee">
-                  <span> HTML, CSS, SCSS, Handlebars, JavaScript, Node.Js</span>
-                </div>
-              </div>
-            </h5>
-
-            <p class="project_description">
-              The Spotify web app provides users with the capability to organize
-              their playlist library, search within it, generate new playlists,
-              and both add and remove tracks from these playlists.
-            </p>
-          </div> -->
-
           <div id="preview" class="preview">
             <button class="close-btn" onclick="closePreview()">Close</button>
             <iframe src="" frameborder="0"></iframe>
@@ -444,7 +418,12 @@
                   target="_blank"
                   href="#"
                   class="sidebar_link contact-link"
-                  onclick="handleLinkClick(event, `https://maps.google.com/?q=Bila%20Tserkva,%20Kyiv%20region,%20Ukraine`)"
+                  onclick="
+                    handleLinkClick(
+                      event,
+                      `https://maps.google.com/?q=Bila%20Tserkva,%20Kyiv%20region,%20Ukraine`,
+                    )
+                  "
                 >
                   <span class="contact-hidden"
                     >Bila Tserkva, Kyiv region, Ukraine</span
@@ -472,7 +451,9 @@
                 <a
                   href="#"
                   class="sidebar_link contact-link"
-                  onclick="handleLinkClick(event, 'mailto:ordercomplete777@gmail.com')"
+                  onclick="
+                    handleLinkClick(event, 'mailto:ordercomplete777@gmail.com')
+                  "
                 >
                   <span class="contact-hidden">ordercomplete777@gmail.com</span>
                   <span class="contact-visible">Email</span>
@@ -487,7 +468,9 @@
                 <a
                   href="#"
                   class="sidebar_link contact-link"
-                  onclick="handleLinkClick(event, `https://github.com/ordercomplete/`)"
+                  onclick="
+                    handleLinkClick(event, `https://github.com/ordercomplete/`)
+                  "
                 >
                   <span class="contact-hidden"
                     >https://github.com/ordercomplete/</span
@@ -504,7 +487,12 @@
                 <a
                   href="#"
                   class="sidebar_link contact-link"
-                  onclick="handleLinkClick(event, `https://www.linkedin.com/in/andrii-ordercomplete/`)"
+                  onclick="
+                    handleLinkClick(
+                      event,
+                      `https://www.linkedin.com/in/andrii-ordercomplete/`,
+                    )
+                  "
                 >
                   <span class="contact-hidden"
                     >linkedin.com/in/andrii-ordercomplete/</span
@@ -613,18 +601,8 @@
           </div>
         </div>
       </aside>
-    </div>
-    <div
-      id="tooltip"
-      style="
-        position: absolute;
-        display: none;
-        background-color: #fff;
-        border: 1px solid #ccc;
-        padding: 10px;
-        z-index: 1000;
-      "
-    ></div>
-    <script src="scripts.js"></script>
+    </main>
+    <!-- defer: скрипт виконується після розбору HTML (продуктивність) -->
+    <script src="scripts.js" defer></script>
   </body>
 </html>
