@@ -345,11 +345,34 @@ a {
   margin-bottom: var(--spacing-xlarge);
 }
 
-/* Language switcher positioning and active state */
+/* Language switcher - default: static at top of page */
 .language-switcher {
-  margin-left: auto;
   display: flex;
   gap: var(--spacing-small);
+  justify-content: flex-end;
+  padding: var(--spacing-small) var(--spacing-xmedium);
+  background-color: var(--color-bg);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.language-switcher button {
+  background-color: var(--color-sidebar);
+  color: var(--color-text-first);
+  border: none;
+  padding: 6px 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-family: var(--font-main);
+  font-size: var(--font-size-xsmall);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  transition: background-color 0.2s ease;
+}
+
+.language-switcher button:hover {
+  background-color: var(--color-accent);
 }
 
 /* Ensure active language button is clearly highlighted */

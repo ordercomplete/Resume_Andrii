@@ -55,14 +55,16 @@
     </script>
   </head>
   <body>
+    <!--Language Switcher (fixed position on mobile)-->
+    <div class="language-switcher">
+      <button id="en-btn">en</button>
+      <button id="uk-btn">uk</button>
+    </div>
+
     <!--Main-->
     <main class="main">
       <!--Main content-->
       <div class="main_content">
-        <div class="language-switcher">
-          <button id="en-btn">en</button>
-          <button id="uk-btn">uk</button>
-        </div>
         <!--about user-->
         <div class="about">
           <h1 class="about_name">Andrii K</h1>
@@ -416,7 +418,7 @@
 
             <h2 class="about_specialty">Front-End Developer</h2>
 
-            <p class="about_text">
+            <p class="about_text" id="about_sidebar_text">
               We offer you to use our services for the creation and improvement
               of your sites, whether it is one-page business cards or online
               stores. A creative approach to the fulfillment of the task, the

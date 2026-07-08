@@ -321,6 +321,8 @@ async function setLanguage(lang) {
     // Update text content for all translatable elements
     document.getElementById("about_text").textContent =
       currentLanguageData.about_text;
+    document.getElementById("about_sidebar_text").textContent =
+      currentLanguageData.about_text;
     document.getElementById("project_1_description").textContent =
       currentLanguageData.project_1_description;
     document.getElementById("project_2_description").textContent =
