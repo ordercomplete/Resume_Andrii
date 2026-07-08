@@ -293,13 +293,28 @@ a {
   font-size: var(--font-size-xsmall);
   display: none;
   position: absolute;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff;
-  padding: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+  background-color: #fdfdfd;
+  padding: 10px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.18);
   z-index: 10;
-  max-width: 200px;
+  max-width: 320px;
+  max-height: 220px;
+  overflow-y: auto;
+  line-height: 1.45;
+  white-space: normal;
+  word-break: break-word;
+  font-family: var(--font-main);
+  color: var(--color-text-main);
+  opacity: 0;
+  transform: translateY(1px);
+  transition: all 0.2s ease;
+}
+
+.tooltip.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Sidebar styles */
@@ -328,6 +343,23 @@ a {
 .sidebar_soft {
   margin-left: var(--spacing-large);
   margin-bottom: var(--spacing-xlarge);
+}
+
+/* Language switcher positioning and active state */
+.language-switcher {
+  margin-left: auto;
+  display: flex;
+  gap: var(--spacing-small);
+}
+
+/* Ensure active language button is clearly highlighted */
+button.active-lang,
+.language-switcher button.active-lang {
+  background-color: var(--color-accent) !important;
+  color: var(--color-text-first) !important;
+  border: 2px solid var(--color-text-first) !important;
+  outline: none !important;
+  font-weight: bold !important;
 }
 
 .sidebar_title_contacts {
@@ -483,8 +515,8 @@ li {
 }
 
 #tooltip {
-  max-width: 200px;
-  border-radius: 4px;
+  max-width: 320px;
+  border-radius: 8px;
 }
 
 /* Responsive styles */

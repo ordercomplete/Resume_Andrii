@@ -59,13 +59,17 @@
     <main class="main">
       <!--Main content-->
       <div class="main_content">
+        <div class="language-switcher">
+          <button id="en-btn">en</button>
+          <button id="uk-btn">uk</button>
+        </div>
         <!--about user-->
         <div class="about">
           <h1 class="about_name">Andrii K</h1>
 
           <h2 class="about_specialty">Front-End Developer</h2>
 
-          <h6 class="about_text">
+          <h6 class="about_text" id="about_text">
             We offer you to use our services for the creation and improvement of
             your sites, whether it is one-page business cards or online stores.
             A creative approach to the fulfillment of the task, the desire for
@@ -105,7 +109,7 @@
               </div>
             </h5>
 
-            <p class="project_description">
+            <p class="project_description" id="project_1_description">
               A bank web application of 12 pages is designed to provide users
               with convenient access to various banking services. Users have the
               ability to handle account-related tasks (such as signing up,
@@ -144,7 +148,7 @@
               </div>
             </h5>
 
-            <p class="project_description">
+            <p class="project_description" id="project_2_description">
               A three-page business card site for an electrical installation
               company.
             </p>
@@ -176,7 +180,7 @@
                 </div>
               </div>
             </h5>
-            <p class="project_description">
+            <p class="project_description" id="project_3_description">
               A web app for posting short messages and the possibility of
               replying with comments to them.
             </p>
@@ -210,7 +214,7 @@
               </div>
             </h5>
 
-            <p class="project_description">
+            <p class="project_description" id="project_4_description">
               My personal resume, adaptation for any mobile devices. Preview
               links. Help terms. Effects for text.
             </p>
@@ -236,12 +240,18 @@
               <span class="main_content_data">|</span> Kyiv, Ukraine
             </h5>
             <ul class="work_list">
-              <li class="work_list_text">
+              <li class="work_list_text" id="work_experience_company_1_task_1">
                 Management of the overhaul of the AllstarsIT office.
               </li>
-              <li class="work_list_text">Adjusting the work of workers.</li>
-              <li class="work_list_text">Meeting deadlines.</li>
-              <li class="work_list_text">Quality control.</li>
+              <li class="work_list_text" id="work_experience_company_1_task_2">
+                Adjusting the work of workers.
+              </li>
+              <li class="work_list_text" id="work_experience_company_1_task_3">
+                Meeting deadlines.
+              </li>
+              <li class="work_list_text" id="work_experience_company_1_task_4">
+                Quality control.
+              </li>
             </ul>
           </div>
           <!--Company 2-->
@@ -255,13 +265,15 @@
               <span class="main_content_data">|</span> Kyiv, Ukraine
             </h5>
             <ul class="work_list">
-              <li class="work_list_text">
+              <li class="work_list_text" id="work_experience_company_2_task_1">
                 Objects of state and commercial order.
               </li>
-              <li class="work_list_text">
+              <li class="work_list_text" id="work_experience_company_2_task_2">
                 Meeting deadlines, quality control.
               </li>
-              <li class="work_list_text">Adjusting the work of workers.</li>
+              <li class="work_list_text" id="work_experience_company_2_task_3">
+                Adjusting the work of workers.
+              </li>
             </ul>
           </div>
           <!--Company 3-->
@@ -275,11 +287,13 @@
               <span class="main_content_data">|</span> Kyiv, Ukraine
             </h5>
             <ul class="work_list">
-              <li class="work_list_text">
+              <li class="work_list_text" id="work_experience_company_3_task_1">
                 Overhaul of premises of state and commercial objects.
               </li>
-              <li class="work_list_text">Adjusting the work of workers.</li>
-              <li class="work_list_text">
+              <li class="work_list_text" id="work_experience_company_3_task_2">
+                Adjusting the work of workers.
+              </li>
+              <li class="work_list_text" id="work_experience_company_3_task_3">
                 Meeting deadlines, quality control.
               </li>
             </ul>
@@ -295,7 +309,7 @@
               <span class="main_content_data">|</span> Kyiv, Ukraine
             </h5>
             <ul class="work_list">
-              <li class="work_list_text">
+              <li class="work_list_text" id="work_experience_company_4_task_1">
                 Maintenance of the online store website.
               </li>
             </ul>
@@ -321,7 +335,10 @@
               >
             </h4>
             <p class="education_degree">Junior Developer JS</p>
-            <p class="education_direction">
+            <p
+              class="education_direction"
+              id="education_institution_1_direction"
+            >
               The direction of study: Fullstack developer JavaScript, React,
               Node.js
             </p>
@@ -347,7 +364,10 @@
               >
             </h4>
             <p class="education_degree">M.A. of Economics</p>
-            <p class="education_direction">
+            <p
+              class="education_direction"
+              id="education_institution_2_direction"
+            >
               The direction of study: Enterprise Economy
             </p>
 
@@ -372,7 +392,10 @@
               >
             </h4>
             <p class="education_degree">M.A. of Civil Engineering</p>
-            <p class="education_direction">
+            <p
+              class="education_direction"
+              id="education_institution_3_direction"
+            >
               The direction of study: "Civil and industrial construction"
             </p>
 
